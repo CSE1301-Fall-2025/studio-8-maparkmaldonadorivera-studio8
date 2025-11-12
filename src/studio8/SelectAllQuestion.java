@@ -13,7 +13,10 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 	 */
 	public SelectAllQuestion(String prompt, String answer, String[] choices) {
 		// Hint: 1 point per choice
-		throw new NotYetImplementedException();
+		//throw new NotYetImplementedException();
+	
+		super(prompt, answer, choices.length, choices);
+
 	}
 	
 	/**
@@ -21,7 +24,11 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 	 * @param String givenAnswer to check for points
 	 */
 	public int checkAnswer(String givenAnswer) {
-		throw new NotYetImplementedException();
+		//throw new NotYetImplementedException();
+		int points = getChoices().length;
+		points -= findMissingCorrectAnswers(givenAnswer);
+		points -= findIncorrectGivenAnswers(givenAnswer);
+		return points;
 	}
 
 	/**
@@ -66,7 +73,9 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 		return missingValues;
 	}	
 	
-	public static void main(String[] args) {	
-		
+	public static void main(String[] args) {
+		String[] nums = {"2", "1", "5", "4", "6"};
+		SelectAllQuestion s1 = new SelectAllQuestion("Which of these numbers are even?", "2, 4, 6", nums);
+		System.out.println(s1.checkAnswer("2, 4, 6"));
 	}
 }

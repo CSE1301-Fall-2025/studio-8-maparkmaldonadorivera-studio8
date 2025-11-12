@@ -4,6 +4,10 @@ import support.cse131.NotYetImplementedException;
 
 public class Question {
 	
+	private String prompt;
+	private String answer;
+	private int points;
+
 	/**
 	 * Constructor
 	 * @param prompt
@@ -11,7 +15,10 @@ public class Question {
 	 * @param points
 	 */
 	public Question(String prompt, String answer, int points) {
-		throw new NotYetImplementedException();
+		//throw new NotYetImplementedException();
+		this.prompt = prompt;
+		this.answer = answer;
+		this.points = points;
 	}
 	
 	/**
@@ -40,7 +47,8 @@ public class Question {
 	 * @return int points
 	 */
 	public int getPoints() {
-		throw new NotYetImplementedException();
+		//throw new NotYetImplementedException();
+		return this.points;
 	}
 	
 	/**
@@ -48,10 +56,13 @@ public class Question {
 	 * @return String answer
 	 */
 	public String getAnswer() {
-		throw new NotYetImplementedException();
+		//throw new NotYetImplementedException();
+		return this.answer;
 	}
 	
 	public static void main(String[] args) {
 		// TODO: Create a Question object of your own!
+		Question q1 = new Question("How old are you?", "five", 3);
+		System.out.println(q1.getPoints());
 	}
 }
